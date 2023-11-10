@@ -1,0 +1,87 @@
+/*
+    File: home.css
+    Author: Carl-Eirik Dahl Johnsenn
+    Date: 01.10.2023
+*/
+
+.spaceShip {
+    width: 100px;
+    display: flex;
+    flex-direction: column;  
+    animation-iteration-count: 1;
+    animation: Fly 8s linear;   /*Makig a animation to make starship fly*/
+    animation-fill-mode: forwards;
+    
+}
+
+.starship {
+    width: 100px;
+    opacity: 70%;
+}
+
+@keyframes Fly {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(-50vh);
+    }
+    100% {
+        transform: translateY(-120vh);
+        display: none;
+    }
+
+}
+
+.fire {
+    position: inherit;
+    display: inline-block;
+    width: 100px;
+    height: 200px;
+    background: url('../assets/images/flames.png') left center;
+    background-size: cover;
+    animation: fireAnimation 0.5s steps(4) infinite
+    
+    
+}
+
+@keyframes fireAnimation {
+    100% { background-position: -490px }
+}
+
+.contentBox {
+    display: flex;
+    width: 60vw;
+    height: 70vh;
+    background-color: rgb(101,115,126, 0.4); /* Had to use rgb because I had dificulties with making the backround trasparent in hex */
+    border-radius: 10px;
+}
+
+.boxLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    border-right: rgb(101,115,126, 0.6) solid 2px;
+    flex-direction: column;
+}
+
+p.text {
+    margin: 3vw;
+    font-size: 1vw;
+    word-wrap: break-word;
+}
+
+.boxRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+
+#homePageArt {
+    position: relative;
+    width: 90%
+}

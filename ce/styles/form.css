@@ -1,0 +1,144 @@
+/*
+    File: form.css
+    Author: Isak Dombestein
+    Date: 1.10.2023
+*/
+
+/* A bit more styling on the header element compared to main style to place it correctly on the page and animate it on pageLoad. */ 
+.header {
+    font-family: D-DIN-Bold, Arial, Verdana, sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    margin: 5vh;
+    padding: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    animation: 0.75s ease-in 0s 1 fadeIn;
+}
+
+#info {
+    animation: 0.75s ease-in 0s 1 fadeIn;
+}
+
+.formGroup {
+    margin-bottom: 5px;
+}
+
+/* Main form element */
+#form {
+    height: 15vh;
+    width: 20vw;
+    position: relative;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+    text-align: center;
+    flex-direction: column;
+    animation: 0.75s ease-in 0s 1 fadeIn;
+    opacity: 1;
+}
+
+/* This looks a bit weird but it only places the four boxes into a 2x2 grid IF the browser size is wide enough. 
+If on mobile or browser window is very narrow, it will place all 4 boxes below one another. */
+.formRow1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.formRow2 {
+    display: flex;
+    flex-direction: row;
+}
+
+input {
+    border-radius: 5px;
+    margin: 10px;
+    overflow: hidden;
+    width: 8vw;
+    height: 3vh;
+    background: #3d3d3d;
+    opacity: 0.5;
+    color: #fff;
+    font-family: D-DIN-Regular, Arial, Verdana, sans-serif;
+    border: 2px #706c6c solid;
+    text-align: center;
+}
+
+/* For some reason, I had to style the Country dropdown differently from everything else in the form. I guess Dropdown menus are just built differently? */
+select {
+    background: #3d3d3d;
+    opacity: 0.5;
+    margin: 10px;
+    overflow: hidden;
+    width: 8.4vw;
+    height: 3.6vh;
+    border-radius: 5px;
+    color: #fff;
+    font-family: D-DIN-Regular, Arial, Verdana, sans-serif;
+    border: 2px #706c6c solid;
+    text-align: center;
+}
+
+input .text{
+    color: white;
+}
+
+/* Background styling and animation. Had to use a separate background class in this file as 
+the main background element aparently didn't like the animation stuff. 
+Z-index used to place background all the way in the back. */
+.formBG {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform-origin: center;
+    animation: 1s ease-out 1 backgroundZoom;
+    transition: all;
+    filter: blur(5px);
+    opacity: 50%;
+    z-index: -1;
+}
+
+/*
+Originally, I wanted the Form element to fade away when the submit button was clicked. However, this proved to be much harder than I expected.
+To my knowledge, there is close to no way to remove the element properly without using JavaScript. So I had to accept defeat and opt for setting the form to display: block,
+instead of display: flex and just allow the formSubmit elements to appear below the form.
+*/
+
+/* Hides the formSubmit element as default */
+#formSubmit {
+    display: none;
+}
+
+/* Shows formSubmit when the url targets #formSubmit (when button is pressed) */
+#formSubmit:target {
+    display: block;
+    animation: 1s ease-in 0s 1 fadeIn;
+}
+
+/* Animation stuff */
+/* Fade In animation for form, button and formSubmit */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Subtle zoom animation on background element when page loads */
+@keyframes backgroundZoom {
+    0% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

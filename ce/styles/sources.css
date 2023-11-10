@@ -1,0 +1,56 @@
+/*
+    File: sources.css
+    Author: Carl-Eirik Dahl Johnsenn (Animation code from home.css, modified for sources.css by Isak Dombestein)
+    Date: 01.10.2023
+*/
+
+.spaceShip {
+    width: 100px;
+    display: flex;
+    flex-direction: column;  
+    animation-iteration-count: 1;
+    animation: Fly 10s linear;   /*Making a animation to make starship fly*/
+    animation-fill-mode: forwards;
+    
+}
+
+.starship {
+    width: 100px;
+    opacity: 70%;
+}
+
+@keyframes Fly {
+    0% {
+        transform: translateY(-1000px);
+    }
+    50% {
+        transform: translateY(-500px);
+    }
+    100% { 
+        transform: translateY(0px);
+    }
+
+}
+
+.fire {
+    position: inherit;
+    display: inline-block;
+    width: 100px;
+    height: 200px;
+    background: url('../assets/images/flames.png') left center;
+    background-size: cover;
+    animation: fireAnimation 0.5s steps(4) 20, hideFire 0s 10s forwards;
+}
+
+@keyframes fireAnimation {
+    100% { background-position: -490px }
+}
+
+@keyframes hideFire {
+    to {
+        visibility: hidden;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
